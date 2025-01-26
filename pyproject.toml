@@ -3,17 +3,18 @@ name = "fastapiraspberrypi"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Calvin",email = "calvinlynch181@outlook.com"}
+    { name = "Calvin", email = "calvinlynch181@outlook.com" }
 ]
 readme = "README.md"
-requires-python = ">=3.9"
-dependencies = [
-    "fastapi (>=0.115.7,<0.116.0)",
-    "influxdb (>=5.3.2,<6.0.0)",
-    "pydantic (>=2.10.6,<3.0.0)",
-    "uvicorn (>=0.34.0,<0.35.0)"
-]
+requires-python = ">=3.9,<4.0"
 
+dependencies = [
+    "fastapi>=0.115.7,<0.116.0",
+    "influx>=0.0.1,<0.0.2",
+    "pydantic>=2.10.6,<3.0.0",
+    "uvicorn>=0.34.0,<0.35.0",
+    "influxdb-client>=1.48.0,<2.0.0"
+]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
