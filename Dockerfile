@@ -1,28 +1,13 @@
-FROM arm64v8/debian:latest
-# For RaspberryPi
-ENV DEBIAN_FRONTEND=noninteractive
+FROM arm64v8/python:3.11-slim
 
 RUN apt-get update && apt-get install -y \
-    python3 \
-    python3-pip \
-    python3-dev \
-    curl \
-    gcc \
-    libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN curl -sSL https://install.python-poetry.org | python3 -
-
-ENV PATH="/root/.local/bin:$PATH"
+    curl gcc libpq-dev && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-COPY pyproject.toml poetry.lock /app/
+COPY . .
 
-RUN poetry install --no-dev --no-interaction
+RUN pip install poetry && poetry install
 
-COPY . /app
-
-EXPOSE 8000
-
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["poetry", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
