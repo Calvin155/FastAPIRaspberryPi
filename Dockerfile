@@ -1,18 +1,22 @@
-FROM arm64v8/python:3.11-slim
-
-RUN apt-get update && apt-get install -y \
-    curl gcc libpq-dev && \
-    rm -rf /var/lib/apt/lists/*
+FROM arm64v8/debian:latest
 
 WORKDIR /app
 
-COPY . .
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    curl \
+    git \
+    build-essential \
+    && apt-get clean
 
-RUN pip install --upgrade pip && \
-    curl -sSL https://install.python-poetry.org | python3 - && \
-    ln -s /root/.local/bin/poetry /usr/local/bin/poetry
+RUN curl -sSL https://install.python-poetry.org | python3 -
+ENV PATH="/root/.local/bin:${PATH}"
 
+COPY pyproject.toml poetry.lock /app/
 RUN poetry install --no-root
+
+COPY . /app
 
 EXPOSE 8000
 
