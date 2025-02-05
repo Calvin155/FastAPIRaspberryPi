@@ -13,6 +13,7 @@ class ParticulateMatterRestController:
 
     async def read_pm_data(self) -> List[AQIData]:
         influx_db = InfluxDB()
+        print("Getting PM Data")
         try:
             data = influx_db.get_pm_data()
             aqi_list = []
