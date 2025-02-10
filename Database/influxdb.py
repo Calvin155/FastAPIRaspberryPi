@@ -35,7 +35,7 @@ class InfluxDB:
     def get_pm_data(self):
         query = f'''
         from(bucket: "{INFLUXDB_BUCKET}")
-        |> range(start: -1h, stop: now())
+        |> range(start: -15s, stop: now())
         |> filter(fn: (r) => r["_measurement"] == "air_quality")
         |> filter(fn: (r) => r["_field"] == "PM1" or r["_field"] == "PM2.5" or r["_field"] == "PM10")
         |> filter(fn: (r) => r["location"] == "local")
