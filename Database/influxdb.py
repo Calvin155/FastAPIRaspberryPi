@@ -72,4 +72,4 @@ class InfluxDB:
     def close(self):
         if self.client:
             self.client.close()
-            logging.info("Connection to Databa
+            logging.info("Connection to Database Closed")
