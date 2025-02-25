@@ -10,6 +10,7 @@ class ParticulateMatterRestController:
 
     def setup_routes(self):
         self.router.add_api_route("/aqi_pm_data", self.get_pm_data, methods=["GET"])
+        self.router.add_api_route("/aqi_historical_pm_data", self.get_historical_pm_data, methods=["GET"])
 
     async def get_pm_data(self) -> List[AQIData]:
         influx_db = InfluxDB()
