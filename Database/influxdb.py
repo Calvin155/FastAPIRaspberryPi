@@ -48,6 +48,24 @@ class InfluxDB:
             print(f"Error while fetching data: {e}")
             return []
 
+    def get_historical_2w_pm_data(self):
+        query = f'''
+        from(bucket: "{INFLUXDB_BUCKET}")
+        |> range(start: -2w, stop: now())
+        |> filter(fn: (r) => r["_measurement"] == "air_quality")
+        |> filter(fn: (r) => r["_field"] == "PM1" or r["_field"] == "PM2.5" or r["_field"] == "PM10")
+        |> filter(fn: (r) => r["location"] == "local")
+        |> aggregateWindow(every: 1h, fn: mean, createEmpty: false)
+        |> yield(name: "mean")
+        '''
+
+        try:
+            result = self.query_api.query(query, org=INFLUXDB_ORG)
+            return result
+        except Exception as e:
+            print(f"Error while fetching data: {e}")
+            return []
+
 
     def get_co2_temp_humidity_data(self):
         query = f'''
