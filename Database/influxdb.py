@@ -72,7 +72,7 @@ class InfluxDB:
         from(bucket: "{INFLUXDB_BUCKET}")
         |> range(start: -15s, stop: now())
         |> filter(fn: (r) => r["_measurement"] == "air_quality")
-        |> filter(fn: (r) => r["_field"] == "CO2" or r["_field"] == "Temperature" or r["_field"] == "Humidity")
+        |> filter(fn: (r) => r["_field"] == "Co2 - Parts Per-Million" or r["_field"] == "Co2 Percentage")
         |> filter(fn: (r) => r["location"] == "local")
         |> aggregateWindow(every: 15s, fn: mean, createEmpty: false)
         |> yield(name: "mean")

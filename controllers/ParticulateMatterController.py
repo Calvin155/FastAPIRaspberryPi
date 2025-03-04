@@ -21,6 +21,7 @@ class ParticulateMatterRestController:
             
             for table in data:
                 for record in table.records:
+                    print(record)
                     aqi_list.append(AQIData(time=record.get_time().isoformat(), value=record.get_value()))
             
             return aqi_list
