@@ -4,9 +4,9 @@ from datetime import datetime, timedelta
 import logging
 
 # Docker container address - Internal
-INFLUXDB_URL = "http://52.212.232.158:8086"
+INFLUXDB_URL = "http://172.17.0.2:8086"
 # Read Only Token
-INFLUXDB_TOKEN="TulR-Qf6uq23i7Ny0h1MmRF3nxuliy8OXU_zyYS4KqfjGRSaQLugwfH_Th7t_jiij8x2wQBtSExOvWvlfVEqJg=="
+INFLUXDB_TOKEN="A7-5YVkA8_g5kZ0trbU8vK-KE2T4ukvt0lTw1nQJ61WX9OJci0Texbp93BXE8jQVXcwktvPHf-UmJsHPEHS4Aw=="
 INFLUXDB_ORG = "AQI"
 INFLUXDB_BUCKET = "AQIMetrics"
 
