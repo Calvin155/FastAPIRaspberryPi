@@ -2,20 +2,16 @@ from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 from datetime import datetime, timedelta
 import logging
-import os
 
-
-INFLUXDB_URL = os.getenv("INFLUXDB_URL")
-INFLUXDB_TOKEN = os.getenv("INFLUXDB_TOKEN")
+INFLUXDB_URL = "http://172.17.0.2:8086"
+INFLUXDB_TOKEN="TulR-Qf6uq23i7Ny0h1MmRF3nxuliy8OXU_zyYS4KqfjGRSaQLugwfH_Th7t_jiij8x2wQBtSExOvWvlfVEqJg=="
 INFLUXDB_ORG = "AQI"
 INFLUXDB_BUCKET = "AQIMetrics"
 
 class InfluxDB:
     def __init__(self):
         self.url = INFLUXDB_URL
-        print(self.url)
         self.token = INFLUXDB_TOKEN
-        print(self.token)
         self.org = INFLUXDB_ORG
         self.bucket = INFLUXDB_BUCKET
         self.client = InfluxDBClient(url=self.url, token=self.token, org=self.org, timeout=30_000)
