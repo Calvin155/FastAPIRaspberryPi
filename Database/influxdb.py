@@ -2,9 +2,11 @@ from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 from datetime import datetime, timedelta
 import logging
+import os
 
-INFLUXDB_URL = "http://18.201.230.235:8086"
-INFLUXDB_TOKEN="_NaX4deSsnKPA6cbcwVqx-G16p_M5ed3tJR-4JYZMBUnJq2pNQWQ7Pz_Mtjq-82oI79pvPiqDMeJ-jPtsfQlmg=="
+
+INFLUXDB_URL = os.getenv("INFLUXDB_URL")
+INFLUXDB_TOKEN = os.getenv("INFLUXDB_TOKEN")
 INFLUXDB_ORG = "AQI"
 INFLUXDB_BUCKET = "AQIMetrics"
 
