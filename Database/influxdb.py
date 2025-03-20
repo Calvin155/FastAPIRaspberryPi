@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import logging
 
 # Docker container address - Internal
-INFLUXDB_URL = "http://172.17.0.3:8086"
+INFLUXDB_URL = "http://52.212.232.158:8086"
 # Read Only Token
 INFLUXDB_TOKEN="TulR-Qf6uq23i7Ny0h1MmRF3nxuliy8OXU_zyYS4KqfjGRSaQLugwfH_Th7t_jiij8x2wQBtSExOvWvlfVEqJg=="
 INFLUXDB_ORG = "AQI"
