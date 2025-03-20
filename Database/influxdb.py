@@ -3,8 +3,8 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 from datetime import datetime, timedelta
 import logging
 
-URL = "http://18.201.230.235:8086"
-TOKEN="_NaX4deSsnKPA6cbcwVqx-G16p_M5ed3tJR-4JYZMBUnJq2pNQWQ7Pz_Mtjq-82oI79pvPiqDMeJ-jPtsfQlmg=="
+INFLUXDB_URL = "http://18.201.230.235:8086"
+INFLUXDB_TOKEN="_NaX4deSsnKPA6cbcwVqx-G16p_M5ed3tJR-4JYZMBUnJq2pNQWQ7Pz_Mtjq-82oI79pvPiqDMeJ-jPtsfQlmg=="
 INFLUXDB_ORG = "AQI"
 INFLUXDB_BUCKET = "AQIMetrics"
 
