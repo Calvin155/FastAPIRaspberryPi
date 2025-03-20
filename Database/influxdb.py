@@ -13,7 +13,9 @@ INFLUXDB_BUCKET = "AQIMetrics"
 class InfluxDB:
     def __init__(self):
         self.url = INFLUXDB_URL
+        print(self.url)
         self.token = INFLUXDB_TOKEN
+        print(self.token)
         self.org = INFLUXDB_ORG
         self.bucket = INFLUXDB_BUCKET
         self.client = InfluxDBClient(url=self.url, token=self.token, org=self.org, timeout=30_000)
