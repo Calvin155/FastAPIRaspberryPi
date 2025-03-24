@@ -1,4 +1,6 @@
 # AirQualityRasp
+Author: Calvin Lynch - K00271788
+Project - Air Quality Metrics Using A Raspberry Pi 5
 Language - Python
 Raspberry PI 5 - Air Quality Metrics
 
