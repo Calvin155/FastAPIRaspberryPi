@@ -6,7 +6,7 @@ import logging
 # Docker container address - Internal
 INFLUXDB_URL = "http://172.17.0.2:8086"
 # Read Only Token
-INFLUXDB_TOKEN="A7-5YVkA8_g5kZ0trbU8vK-KE2T4ukvt0lTw1nQJ61WX9OJci0Texbp93BXE8jQVXcwktvPHf-UmJsHPEHS4Aw=="
+INFLUXDB_TOKEN="5Eqm3AowyOZZENHkL9zC7C0Tiw9MEChTZGbcG7oky8daQobPnYUDgUoeZ4-S1IxFVoBZeaeGkAzMo4yxy0_IiQ=="
 INFLUXDB_ORG = "AQI"
 INFLUXDB_BUCKET = "AQIMetrics"
 
@@ -46,6 +46,7 @@ class InfluxDB:
 
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
+            print(result)
             return result
         except Exception as e:
             print(f"Error while fetching data: {e}")
@@ -65,6 +66,7 @@ class InfluxDB:
 
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
+            print(result)
             return result
         except Exception as e:
             print(f"Error while fetching data: {e}")
@@ -84,6 +86,7 @@ class InfluxDB:
 
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
+            print(result)
             return result
         except Exception as e:
             print(f"Error while fetching data: {e}")
@@ -102,6 +105,7 @@ class InfluxDB:
 
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
+            print(result)
             return result
         except Exception as e:
             print(f"Error while fetching data: {e}")
@@ -121,6 +125,7 @@ class InfluxDB:
 
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
+            print(result)
             return result
         except Exception as e:
             print(f"Error while fetching data: {e}")
@@ -138,6 +143,7 @@ class InfluxDB:
         '''
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
+            print(result)
             return result
         except Exception as e:
             print(f"Error while fetching data: {e}")
@@ -155,6 +161,7 @@ class InfluxDB:
         '''
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
+            print(result)
             return result
         except Exception as e:
             print(f"Error while fetching data: {e}")
@@ -172,6 +179,7 @@ class InfluxDB:
         '''
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
+            print(result)
             return result
         except Exception as e:
             print(f"Error while fetching data: {e}")
