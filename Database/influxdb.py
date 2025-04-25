@@ -55,7 +55,7 @@ class InfluxDB:
     def get_historical_pm_data_by_data(self, start_date, stop_date):
         query = f'''
         from(bucket: "{INFLUXDB_BUCKET}")
-        |> range(start: -{start_date}, stop: {stop_date})
+        |> range(start: {start_date}, stop: {stop_date})
         |> filter(fn: (r) => r["_measurement"] == "air_quality")
         |> filter(fn: (r) => r["_field"] == "PM1" or r["_field"] == "PM2.5" or r["_field"] == "PM10")
         |> filter(fn: (r) => r["location"] == "local")
@@ -74,7 +74,7 @@ class InfluxDB:
     def get_historical_pm1_data_by_data(self, start_date, stop_date):
         query = f'''
         from(bucket: "{INFLUXDB_BUCKET}")
-        |> range(start: -{start_date}, stop: {stop_date})
+        |> range(start: {start_date}, stop: {stop_date})
         |> filter(fn: (r) => r["_measurement"] == "air_quality")
         |> filter(fn: (r) => r["_field"] == "PM1")
         |> filter(fn: (r) => r["location"] == "local")
@@ -92,7 +92,7 @@ class InfluxDB:
     def get_historical_pm2_5_data_by_data(self, start_date, stop_date):
         query = f'''
         from(bucket: "{INFLUXDB_BUCKET}")
-        |> range(start: -{start_date}, stop: {stop_date})
+        |> range(start: {start_date}, stop: {stop_date})
         |> filter(fn: (r) => r["_measurement"] == "air_quality")
         |> filter(fn: (r) => r["_field"] == "PM2.5")
         |> filter(fn: (r) => r["location"] == "local")
@@ -111,7 +111,7 @@ class InfluxDB:
     def get_historical_pm10_data_by_data(self, start_date, stop_date):
         query = f'''
         from(bucket: "{INFLUXDB_BUCKET}")
-        |> range(start: -{start_date}, stop: {stop_date})
+        |> range(start: {start_date}, stop: {stop_date})
         |> filter(fn: (r) => r["_measurement"] == "air_quality")
         |> filter(fn: (r) => r["_field"] == "PM10")
         |> filter(fn: (r) => r["location"] == "local")
@@ -146,7 +146,7 @@ class InfluxDB:
     def get_historical_co2_ppm_data(self,start_date, stop_date):
         query = f'''
         from(bucket: "{INFLUXDB_BUCKET}")
-        |> range(start: -{start_date}, stop: {stop_date})
+        |> range(start: {start_date}, stop: {stop_date})
         |> filter(fn: (r) => r["_measurement"] == "air_quality")
         |> filter(fn: (r) => r["_field"] == "Co2 - Parts Per-Million")
         |> filter(fn: (r) => r["location"] == "local")
@@ -163,7 +163,7 @@ class InfluxDB:
     def get_co2_percentage_data(self,start_date, stop_date):
         query = f'''
         from(bucket: "{INFLUXDB_BUCKET}")
-        |> range(start: -{start_date}, stop: {stop_date})
+        |> range(start: {start_date}, stop: {stop_date})
         |> filter(fn: (r) => r["_measurement"] == "air_quality")
         |> filter(fn: (r) => r["_field"] == "Co2 Percentage")
         |> filter(fn: (r) => r["location"] == "local")
