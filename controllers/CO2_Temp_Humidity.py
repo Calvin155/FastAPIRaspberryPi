@@ -3,6 +3,7 @@ from typing import List, Optional
 from datetime import datetime
 from Database.influxdb import InfluxDB
 from models.AQIData import AQIData
+import logging
 
 class CO2TempHumidityController:
     def __init__(self):
@@ -42,7 +43,7 @@ class CO2TempHumidityController:
             return aqi_list
         
         except Exception as e:
-            print(f"Error fetching AQI data: {e}")
+            logging.exception(f"Error fetching AQI data: {e}")
             raise HTTPException(status_code=500, detail="Internal Server Error")
 
     async def read_co2_percentage_data(self,*,start: datetime = Query(...,description="ISO8601",),end: Optional[datetime] = Query(None,description="ISO8601",),) -> List[AQIData]:

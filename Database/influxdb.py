@@ -3,6 +3,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 from datetime import datetime, timedelta
 import logging
 
+
 # Docker container address - Internal
 INFLUXDB_URL = "http://172.17.0.2:8086"
 # Read Only Token
@@ -25,12 +26,10 @@ class InfluxDB:
             if self.client:
                 self.client = InfluxDBClient(url=self.url, token=self.token, org=self.org)
                 logging.info("Successfully Connected to Influx Database")
-                print("Successfully connected to Influx")
             else:
                 logging.info("Already connected to Influx Database")
-                print("Already connected to Influx")
         except Exception as e:
-            logging.error("Error Connecting to Database: " + str(e))
+            logging.exception("Error Connecting to Database: " + str(e))
 
     #-----------------------------------------Particulate Matter data ----------------------------------
     def get_pm_data(self):
@@ -46,10 +45,10 @@ class InfluxDB:
 
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
-            print(result)
+            logging.info(result)
             return result
         except Exception as e:
-            print(f"Error while fetching data: {e}")
+            logging.exception(f"Error while fetching data: {e}")
             return []
 
     #Will return all 3 Particulate Matter features
@@ -66,10 +65,10 @@ class InfluxDB:
 
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
-            print(result)
+            logging.info(result)
             return result
         except Exception as e:
-            print(f"Error while fetching data: {e}")
+            logging.exception(f"Error while fetching data: {e}")
             return []
 
 
@@ -86,10 +85,10 @@ class InfluxDB:
 
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
-            print(result)
+            logging.info(result)
             return result
         except Exception as e:
-            print(f"Error while fetching data: {e}")
+            logging.exception(f"Error while fetching data: {e}")
             return []
         
     def get_historical_pm2_5_data_by_data(self, start_date, stop_date):
@@ -105,10 +104,10 @@ class InfluxDB:
 
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
-            print(result)
+            logging.info(result)
             return result
         except Exception as e:
-            print(f"Error while fetching data: {e}")
+            logging.exception(f"Error while fetching data: {e}")
             return []
         
         
@@ -125,10 +124,10 @@ class InfluxDB:
 
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
-            print(result)
+            logging.info(result)
             return result
         except Exception as e:
-            print(f"Error while fetching data: {e}")
+            logging.exception(f"Error while fetching data: {e}")
             return []
     #-----------------------------------------CO2 data ----------------------------------
     def get_co2_data(self):
@@ -143,10 +142,10 @@ class InfluxDB:
         '''
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
-            print(result)
+            logging.info(result)
             return result
         except Exception as e:
-            print(f"Error while fetching data: {e}")
+            logging.exception(f"Error while fetching data: {e}")
             return []
         
     def get_historical_co2_ppm_data(self,start_date, stop_date):
@@ -161,10 +160,10 @@ class InfluxDB:
         '''
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
-            print(result)
+            logging.info(result)
             return result
         except Exception as e:
-            print(f"Error while fetching data: {e}")
+            logging.exception(f"Error while fetching data: {e}")
             return []
         
     def get_co2_percentage_data(self,start_date, stop_date):
@@ -179,10 +178,10 @@ class InfluxDB:
         '''
         try:
             result = self.query_api.query(query, org=INFLUXDB_ORG)
-            print(result)
+            logging.info(result)
             return result
         except Exception as e:
-            print(f"Error while fetching data: {e}")
+            logging.exception(f"Error while fetching data: {e}")
             return []
 
     def close(self):

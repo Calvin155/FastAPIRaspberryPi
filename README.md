@@ -11,6 +11,8 @@ Database Requirements: Ensure that you have a database set up & running live. Th
 This will require some configuration: Locate the Database folder & then locate influxdb.py.
 Locate the following: 
 
+(Alternative to the below, if url or token cannot be added into .env on Raspberry Pi, add directly here)
+
 INFLUXDB_URL = os.getenv("INFLUXDB_URL")
 INFLUXDB_TOKEN = os.getenv("INFLUXDB_TOKEN")
 
