@@ -5,9 +5,9 @@ import logging
 
 
 # Docker container address - Internal
-INFLUXDB_URL = "http://172.17.0.2:8086"
+INFLUXDB_URL = "http://52.212.232.158:8086"
 # Read Only Token
-INFLUXDB_TOKEN="5Eqm3AowyOZZENHkL9zC7C0Tiw9MEChTZGbcG7oky8daQobPnYUDgUoeZ4-S1IxFVoBZeaeGkAzMo4yxy0_IiQ=="
+INFLUXDB_TOKEN="RgX7vKr0GqPxbk5vih8nVG7RUylhYzeh5NlO2B6TVH6wEZWyCe7d8_Lpol3fnwdij-KvBdl4g8YIG-VbLa8-Ng=="
 INFLUXDB_ORG = "AQI"
 INFLUXDB_BUCKET = "AQIMetrics"
 
